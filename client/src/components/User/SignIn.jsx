@@ -16,7 +16,7 @@ export const SignIn = () => {
       signInName
     });
     console.log(data);
-    localStorage.setItem('user', data);
+    localStorage.setItem('user', JSON.stringify(data));
     setRedirect('/')
   }
   

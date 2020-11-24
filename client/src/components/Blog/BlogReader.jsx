@@ -1,8 +1,19 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {format} from 'date-fns';
+import api from '../../utils/api';
+import {useRouteMatch} from 'react-router-dom';
 
 export const BlogReader = () => {
   const [blog, setBlog] = useState();
+  const {params: {id}} = useRouteMatch()
+  useEffect(() => {
+    getBlog();
+  }, [])
+
+  const getBlog = async () => {
+    const {data} = await api.GetBlog(id);
+    setBlog(data);
+  }
 
   return (
     <div>

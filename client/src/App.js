@@ -6,6 +6,7 @@ import { Home } from './components/Home/Home';
 import { SignIn } from './components/User/SignIn';
 import { Register } from './components/User/Register';
 import { BlogReader } from './components/Blog/BlogReader';
+import { BlogWriter } from './components/Blog/BlogWriter';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/posts/create" component={BlogWriter} />
           <Route exact path="/posts/:id" component={BlogReader} />
           <Route exact path="/" component={Home} />
         </Switch>

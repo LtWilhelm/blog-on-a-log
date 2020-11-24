@@ -1,9 +1,12 @@
-const { Post } = require('../models')
+const { Post, User } = require('../models');
 
 module.exports = ({
-  Create: async ({ body }, res) => {
+  Create: async ({ body, params: {id} }, res) => {
     try {
+      const user = await User.findById(id);
       const post = await Post.create(body);
+      user.blogPosts.push(post._id);
+      await user.save();
       res.send(post._id)
     } catch (err) {
       console.log(err);
