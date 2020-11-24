@@ -1,0 +1,447 @@
+/* TEMPORARY DO NOT LEAVE IN */
+
+/* * {
+  box-sizing: border-box;
+}
+
+.flex>div>div {
+  height: 100%;
+  border: 2px solid white;
+} */
+
+/* TEMPORARY DO NOT LEAVE IN */
+
+.container {
+  width: 960px;
+  margin: auto;
+  padding: 5px;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.flex>div.fill {
+  flex: 1;
+}
+
+.flex.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex[class*="col"]:not(.no-space)>div:not(.no-space) {
+  padding: 0 5px 10px;
+}
+
+.flex[class*="col"]>div:first-child {
+  padding-left: 0 !important;
+}
+
+.flex[class*="col"]>div:last-child {
+  padding-right: 0 !important;
+}
+
+.flex.span2-space>div {
+  padding: 10px;
+}
+
+.flex.small-space>div {
+  padding: 2px;
+}
+
+/* #region  column starts and stops */
+
+/* .flex.col2:not(.no-space)>div:nth-child(2n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col2:not(.no-space)>div:nth-child(2n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col3:not(.no-space)>div:nth-child(3n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col3:not(.no-space)>div:nth-child(3n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col4:not(.no-space)>div:nth-child(4n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col4:not(.no-space)>div:nth-child(4n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col5:not(.no-space)>div:nth-child(5n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col5:not(.no-space)>div:nth-child(5n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col6:not(.no-space)>div:nth-child(6n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col6:not(.no-space)>div:nth-child(6n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col7:not(.no-space)>div:nth-child(7n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col7:not(.no-space)>div:nth-child(7n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col8:not(.no-space)>div:nth-child(8n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col8:not(.no-space)>div:nth-child(8n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col9:not(.no-space)>div:nth-child(9n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col9:not(.no-space)>div:nth-child(9n+1) {
+  color:green;
+  padding-left: 0 !important;
+}
+
+.flex.col10:not(.no-space)>div:nth-child(10n+0) {
+  color:red;
+  padding-right: 0 !important;
+}
+
+.flex.col10:not(.no-space)>div:nth-child(10n+1) {
+  color:green;
+  padding-left: 0 !important;
+} */
+
+/* #endregion */
+
+/* #region  Column Counts */
+
+.flex.col2>div, .flex.col4>div.span2, .flex.col6>div.span3, .flex.col8>div.span4, .flex.col10>div.span5, .flex>div.half {
+  flex-basis: 50%;
+}
+
+.flex.col3>div, .flex.col6>div.span2, .flex.col9>div.span3 {
+  flex-basis: calc(100% / 3);
+}
+
+.flex.col4>div, .flex.col8>div.span2, .flex>div.quarter {
+  flex-basis: 25%;
+}
+
+.flex.col5>div, .flex.col10>div.span2 {
+  flex-basis: 20%;
+}
+
+.flex.col6>div {
+  flex-basis: calc(100%/6);
+}
+
+.flex.col7>div {
+  flex-basis: calc(100%/7);
+}
+
+.flex.col8>div {
+  flex-basis: calc(100%/8);
+}
+
+.flex.col9>div {
+  flex-basis: calc(100%/9);
+}
+
+.flex.col10>div {
+  flex-basis: 10%;
+}
+
+/* #endregion */
+
+/* #region  Column Spanning */
+
+/* Span full */
+
+.flex:not(.space-between, .space-around, .space-evenly, .centered)>div, .flex.col2>div.span2, .flex.col3>div.span3, .flex.col4>div.span4, .flex.col5>div.span5, .flex.col6>div.span6, .flex.col7>div.span7, .flex.col8>div.span8, .flex.col9>div.span9, .flex.col10>div.span10 {
+  flex-basis: 100%;
+}
+
+/* Span 2 */
+
+.flex.col3>div.span2, .flex.col6>div.span4, .flex.col9>div.span6 {
+  flex-basis: calc(100% / 1.5);
+}
+
+.flex.col5>div.span2, .flex.col10>div.span4 {
+  flex-basis: 40%;
+}
+
+.flex.col7>div.span2 {
+  flex-basis: calc(200%/7);
+}
+
+.flex.col9>div.span2 {
+  flex-basis: calc(200%/9);
+}
+
+/* Span 3 */
+
+.flex.col4>div.span3, .flex.col8>div.span6, .flex>div.three-quarters {
+  flex-basis: 75%;
+}
+
+.flex.col5>div.span3, .flex.col10>div.span6 {
+  flex-basis: 60%;
+}
+
+.flex.col7>div.span3 {
+  flex-basis: calc(300%/7);
+}
+
+.flex.col8>div.span3 {
+  flex-basis: calc(300%/8);
+}
+
+.flex.col10>div.span3 {
+  flex-basis: 30%;
+}
+
+/* Span 4 */
+
+.flex.col5>div.span4, .flex.col10>div.span8 {
+  flex-basis: 80%;
+}
+
+.flex.col7>div.span4 {
+  flex-basis: calc(400%/7);
+}
+
+.flex.col9>div.span4 {
+  flex-basis: calc(400%/9);
+}
+
+/* Span 5 */
+
+.flex.col6>div.span5 {
+  flex-basis: calc(500%/6);
+}
+
+.flex.col7>div.span5 {
+  flex-basis: calc(500%/7);
+}
+
+.flex.col8>div.span5 {
+  flex-basis: calc(500%/8);
+}
+
+.flex.col9>div.span5 {
+  flex-basis: calc(500%/9);
+}
+
+/* Span 6 */
+
+.flex.col7>div.span6 {
+  flex-basis: calc(600%/7);
+}
+
+/* Span 7 */
+
+.flex.col8>div.span7 {
+  flex-basis: calc(700%/8);
+}
+
+.flex.col9>div.span7 {
+  flex-basis: calc(700%/9);
+}
+
+.flex.col10>div.span7 {
+  flex-basis: 70%;
+}
+
+/* Span 8 */
+
+.flex.col9>div.span8 {
+  flex-basis: calc(800%/9);
+}
+
+/* Span 9 */
+
+.flex.col10>div.span9 {
+  flex-basis: 90%;
+}
+
+/* Fractions */
+
+.flex>div.full {
+  flex-basis: 100%;
+}
+
+.flex>div.half {
+  flex-basis: 50%;
+}
+
+.flex>div.third {
+  flex-basis: calc(100%/3);
+}
+
+.flex>div.quarter {
+  flex-basis: 25%;
+}
+
+.flex>div.two-thirds {
+  flex-basis: calc(200%/3);
+}
+
+.flex>div.three-quarters {
+  flex-basis: 75%;
+}
+
+/* #endregion */
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+.flex.space-around {
+  justify-content: space-around;
+}
+
+.flex.space-evenly {
+  justify-content: space-evenly;
+}
+
+.flex.centered {
+  justify-content: center;
+}
+
+.flex.justify-right {
+  justify-content: flex-end;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex>.align-center {
+  align-self: center;
+}
+
+/* large screen */
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 1440px;
+  }
+  .flex.col10-lg>div {
+    flex-basis: 10% !important;
+  }
+  .flex.col4-lg>div {
+    flex-basis: 25% !important;
+  }
+  .flex.col5-lg>div {
+    flex-basis: 20% !important;
+  }
+  .flex.col2-lg>div {
+    flex-basis: 50%;
+  }
+}
+
+/* extra large screen */
+
+@media only screen and (min-width: 2000px) {
+  .container {
+    width: 2000px;
+  }
+  .flex.col2-xl>div {
+    flex-basis: 50%;
+  }
+}
+
+/* medium screen */
+
+@media only screen and (max-width: 960px) {
+  .container {
+    width: 720px;
+  }
+  .flex.col3-md>div {
+    flex-basis: calc(100% / 3);
+  }
+  .flex.col2-md>div {
+    flex-basis: 50%;
+  }
+}
+
+/* small screen */
+
+@media only screen and (max-width: 720px) {
+  .container {
+    max-width: 100%;
+  }
+  .flex.col3-sm>div {
+    flex-basis: calc(100% / 3);
+  }
+  .flex.col2-sm>div {
+    flex-basis: 50%;
+  }
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    width: 100%;
+  }
+  .flex.col1-mobile>div, .flex.col1-mobile>div[class*="span"] {
+    flex-basis: 100%;
+    padding: 0 !important;
+    margin-top: 15px;
+  }
+  .flex.flex.col1-mobile>div:first-child {
+    margin-top: 0;
+  }
+  .flex.flex.col1-mobile {
+    margin: 15px 0;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .show-mobile {
+    display: block;
+  }
+  /* table {
+    font-size: .9em;
+  } */
+}
