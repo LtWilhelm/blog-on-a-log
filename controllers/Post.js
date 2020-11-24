@@ -1,6 +1,6 @@
 const { Post } = require('../models')
 
-module.exports({
+module.exports = ({
   Create: async ({ body }, res) => {
     try {
       const post = await Post.create(body);
@@ -14,6 +14,15 @@ module.exports({
     try {
       const post = await Post.findById(id);
       res.json(post.toObject());
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+    }
+  },
+  GetPage: async ({params: {id}}, res) => {
+    try {
+      const posts = await Post.find();
+      res.json(posts.toObject());
     } catch (err) {
       console.error(err);
       res.status(500).json(err);

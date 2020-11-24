@@ -1,11 +1,12 @@
 const { User } = require('../models/index');
 
-module.exports({
+module.exports = ({
   Register: async ({ body }, res) => {
     try {
-      const user = new User(body);
+      let user = new User(body);
       user.password = user.generateHash(body.password);
-      user.save()
+      user = await user.save()
+      console.log(user.username);
       res.sendStatus(200);
     }
     catch (err) {
@@ -15,7 +16,7 @@ module.exports({
   },
   Login: async ({ body }, res) => {
     try {
-      const user = await User.findOne({$or: {username: body.signInName, email: body.signInName}});
+      const user = await User.findOne({$or: [{username: body.signInName}, {email: body.signInName}]});
       res.json(new VisibleUser(user.toObject()));
     } catch (err) {
       console.error(err);
@@ -24,7 +25,8 @@ module.exports({
   }
 })
 
-function VisibleUser ({username, email}) {
+function VisibleUser ({_id, username, email}) {
+  this.id = _id;
   this.username = username;
   this.email = email;
 }
