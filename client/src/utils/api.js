@@ -1,10 +1,12 @@
 import axios from 'axios'
 
 const api = {
-  SignIn: (signIn) => axios.post('http://localhost:3001/users/signin', signIn),
-  Register: (register) => axios.post('http://localhost:3001/users/register', register),
-  GetBlog: (id) => axios.get("http://localhost:3001/posts/" + id),
-  CreateBlog: (userId, blog) => axios.post('http://localhost:3001/posts/' + userId, blog)
+  SignIn: (signIn) => axios.post('/users/signin', signIn),
+  Register: (register) => axios.post('/users/register', register),
+  GetBlogPost: (id) => axios.get("/posts/" + id),
+  GetAllPosts: (pageNumber) => axios.get('/posts?p=' + pageNumber),
+  CreateBlogPost: (userId, blog) => axios.post('/posts/' + userId, blog),
+  AddComment: (postId, comment) => axios.post('/comments/' + postId, comment)
 }
 
 export default api;

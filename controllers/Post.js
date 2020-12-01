@@ -1,4 +1,5 @@
-const { Post, User } = require('../models');
+const { Post: {Post}, User } = require('../models');
+const populateComments = require('../utils/populateComment')
 
 module.exports = ({
   Create: async ({ body, params: {id} }, res) => {
@@ -15,17 +16,23 @@ module.exports = ({
   },
   Get: async ({params: {id}}, res) => {
     try {
-      const post = await Post.findById(id);
-      res.json(post.toObject());
+      const post = (await Post.findById(id)).toObject();
+      console.log(post.comments);
+      res.json(post);
     } catch (err) {
       console.error(err);
       res.status(500).json(err);
     }
   },
-  GetPage: async ({params: {id}}, res) => {
+  GetPage: async ({params: {id}, query: {p}}, res) => {
     try {
-      const posts = await Post.find();
-      res.json(posts.toObject());
+      console.log('hit', p);
+      const posts = await Post.find({}, {}, {
+        limit: 10,
+        skip: p * 10,
+        autopopulate: false
+      });
+      res.json(posts);
     } catch (err) {
       console.error(err);
       res.status(500).json(err);

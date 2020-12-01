@@ -1,8 +1,11 @@
 import React from 'react';
+import { NavBar } from './NavBar';
 
 export const Layout = (props) => (
-  <div>
-    <h1>Awesom Blog!</h1>
-    {props.children}
-  </div>
+  <>
+    <NavBar />
+    <div className="container">
+      {props.children}
+    </div>
+  </>
 )

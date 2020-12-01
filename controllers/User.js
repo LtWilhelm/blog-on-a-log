@@ -22,7 +22,8 @@ module.exports = ({
       console.error(err);
       res.status(500).json(err);
     }
-  }
+  },
+  VisibleUser
 })
 
 function VisibleUser ({_id, username, email}) {

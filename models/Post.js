@@ -8,12 +8,20 @@ const CommentSchema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    autopopulate: {
+      select: "username"
+    }
   },
   date: {
     type: mongoose.SchemaTypes.Date,
     default: () => Date.now()
-  }
+  },
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment',
+    autopopulate: true
+  }]
 })
 
 const PostSchema = new mongoose.Schema({
@@ -29,9 +37,20 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.SchemaTypes.Date,
     default: () => Date.now()
   },
-  comments: [CommentSchema]
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment',
+    autopopulate: true
+  }]
 })
 
-const Post = mongoose.model('Post', PostSchema);
+PostSchema.plugin(require('mongoose-autopopulate'));
+CommentSchema.plugin(require('mongoose-autopopulate'));
 
-module.exports = Post;
+const Post = mongoose.model('Post', PostSchema);
+const Comment = mongoose.model('Comment', CommentSchema);
+
+  module.exports = {
+    Post,
+    Comment
+  };

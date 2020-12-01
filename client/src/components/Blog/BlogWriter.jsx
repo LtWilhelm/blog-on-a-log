@@ -11,7 +11,7 @@ export const BlogWriter = () => {
 
   const saveBlog = async () => {
     let user = JSON.parse(localStorage.getItem('user'))
-    const { data } = await api.CreateBlog(user.id, {
+    const { data } = await api.CreateBlogPost(user.id, {
       title,
       body
     })

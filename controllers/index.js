@@ -1,4 +1,5 @@
 module.exports = {
   UserController: require('./User'),
-  PostController: require('./Post')
+  PostController: require('./Post'),
+  CommentController: require('./Comment')
 }
